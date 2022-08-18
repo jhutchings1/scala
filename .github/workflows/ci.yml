@@ -40,3 +40,6 @@ jobs:
         run: |
           STARR=`cat buildcharacter.properties | grep ^maven.version.number | cut -d= -f2` && echo $STARR
           sbt -Dstarr.version=$STARR setupValidateTest test:compile info testAll
+          
+      - name: Dependency scan
+        uses: scalacenter/sbt-dependency-submission@v2.0.1
